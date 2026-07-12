@@ -1,0 +1,125 @@
+/*=========================================================
+                        HERO
+=========================================================*/
+
+.hero{
+
+    padding: 20px 0;
+
+    background:var(--light);
+
+}
+
+.hero .grid-2{
+
+    min-height:600px;
+
+}
+
+/*=========================================================
+                    HERO CONTENT
+=========================================================*/
+
+.hero-text{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+}
+
+.hero-subtitle{
+
+    display:inline-block;
+
+    color:var(--primary);
+
+    font-size:16px;
+
+    font-weight:600;
+
+    letter-spacing:2px;
+
+    margin-bottom:18px;
+
+}
+
+.hero-title{
+
+    font-size:clamp(2.5rem,5vw,4.3rem);
+
+    line-height:1.15;
+
+    color:var(--dark);
+
+    margin-bottom:25px;
+
+}
+
+.hero-description{
+
+    max-width:560px;
+
+    margin-bottom:35px;
+
+}
+
+.hero-buttons{
+
+    display:flex;
+
+    gap:18px;
+
+    flex-wrap:wrap;
+
+}
+
+/*=========================================================
+                    HERO SLIDER
+=========================================================*/
+
+.hero-slider{
+
+    position:relative;
+
+    width:100%;
+
+    aspect-ratio:4/3;
+
+    border-radius:var(--radius-lg);
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow-lg);
+
+}
+
+.hero-slide{
+
+    position:absolute;
+
+    inset:0;
+
+    opacity:0;
+
+    transition:opacity .6s ease;
+
+}
+
+.hero-slide.active{
+
+    opacity:1;
+
+}
+
+.hero-slide img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}

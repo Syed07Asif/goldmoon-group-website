@@ -1,0 +1,25 @@
+/*=========================================================
+                        CARD
+=========================================================*/
+
+.card{
+
+    background:var(--white);
+
+    border-radius:var(--radius-md);
+
+    box-shadow:var(--shadow-md);
+
+    overflow:hidden;
+
+    transition:var(--transition);
+
+}
+
+.card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:var(--shadow-lg);
+
+}

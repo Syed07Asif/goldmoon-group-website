@@ -1,0 +1,61 @@
+/*=========================================================
+                        HEADER
+=========================================================*/
+
+.header{
+
+    background:var(--white);
+
+    border-bottom:1px solid var(--border);
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+.header-content{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:20px;
+
+    padding:20px 0;
+
+}
+
+.logo img{
+
+    width:90px;
+
+    height:auto;
+
+}
+
+.company-details{
+
+    text-align:left;
+
+}
+
+.company-name{
+
+    font-size:40px;
+
+    color:var(--dark);
+
+    line-height:1.2;
+
+}
+
+.company-tagline{
+
+    color:var(--primary);
+
+    font-weight:500;
+
+    margin-top:6px;
+
+}

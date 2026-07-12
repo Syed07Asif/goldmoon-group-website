@@ -1,0 +1,75 @@
+/*=========================================================
+                    TYPOGRAPHY
+=========================================================*/
+
+h1{
+
+    font-size:64px;
+
+    font-weight:700;
+
+    color:var(--dark);
+
+}
+
+h2{
+
+    font-size:46px;
+
+    font-weight:700;
+
+    color:var(--dark);
+
+}
+
+h3{
+
+    font-size:28px;
+
+    font-weight:600;
+
+    color:var(--dark);
+
+}
+
+p{
+
+    font-size:16px;
+
+    line-height:1.8;
+
+}
+
+.section-subtitle{
+
+    display:block;
+
+    text-align:center;
+
+    color:var(--primary);
+
+    font-weight:600;
+
+    letter-spacing:2px;
+
+    margin-bottom:12px;
+
+}
+
+.section-title{
+
+    text-align:center;
+
+    margin-bottom:20px;
+
+}
+
+.section-description{
+
+    max-width:700px;
+
+    margin:0 auto;
+
+    text-align:center;
+
+}

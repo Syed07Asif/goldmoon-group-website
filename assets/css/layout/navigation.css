@@ -1,0 +1,187 @@
+/*=========================================================
+                        NAVIGATION
+=========================================================*/
+
+.navbar{
+
+    background:var(--white);
+
+    border-top:1px solid var(--border);
+
+    border-bottom:1px solid var(--border);
+
+    box-shadow:var(--shadow-sm);
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+}
+
+/*=========================================================
+                    NAVIGATION CONTAINER
+=========================================================*/
+
+.navbar .container{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    min-height:64px;
+
+    position:relative;
+
+}
+
+/*=========================================================
+                        MENU
+=========================================================*/
+
+.nav-menu{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+/*=========================================================
+                    MENU ITEMS
+=========================================================*/
+
+.nav-menu li{
+
+    display:flex;
+
+}
+
+/*=========================================================
+                    NAVIGATION LINKS
+=========================================================*/
+
+.nav-menu a{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    min-width:95px;
+
+    height:42px;
+
+    padding:0 18px;
+
+    border-radius:30px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    color:var(--dark);
+
+    transition:var(--transition);
+
+}
+
+/*=========================================================
+                        ACTIVE
+=========================================================*/
+
+.nav-menu a.active{
+
+    background:var(--primary);
+
+    color:var(--white);
+
+}
+
+/*=========================================================
+                        HOVER
+=========================================================*/
+
+.nav-menu a:hover{
+
+    background:var(--primary);
+
+    color:var(--white);
+
+}
+
+/*=========================================================
+                    HAMBURGER
+=========================================================*/
+
+/*=========================================================
+                    MENU TOGGLE
+=========================================================*/
+
+.menu-toggle{
+
+    display:none;
+
+    width:46px;
+
+    height:46px;
+
+    border:none;
+
+    background:none;
+
+    cursor:pointer;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:5px;
+
+    padding:0;
+
+}
+
+.menu-toggle span{
+
+    width:24px;
+
+    height:3px;
+
+    border-radius:50px;
+
+    background:var(--dark);
+
+    transition:.35s ease;
+
+}
+
+/* Active Animation */
+
+.menu-toggle.active span:nth-child(1){
+
+    transform:rotate(45deg) translate(6px,6px);
+
+}
+
+.menu-toggle.active span:nth-child(2){
+
+    opacity:0;
+
+}
+
+.menu-toggle.active span:nth-child(3){
+
+    transform:rotate(-45deg) translate(6px,-6px);
+
+}

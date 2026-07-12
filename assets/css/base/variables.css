@@ -1,0 +1,57 @@
+/*=========================================================
+                    GOOGLE FONT
+=========================================================*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/*=========================================================
+                    CSS VARIABLES
+=========================================================*/
+
+:root{
+
+    /* Brand Colors */
+
+    --primary:#0B7A3B;
+
+    --secondary:#D4AF37;
+
+    /* Neutral Colors */
+
+    --white:#FFFFFF;
+
+    --light:#F8F9FA;
+
+    --dark:#1F2937;
+
+    --text:#6B7280;
+
+    --border:#E5E7EB;
+
+    /* Shadows */
+
+    --shadow-sm:0 5px 15px rgba(0,0,0,.08);
+
+    --shadow-md:0 10px 25px rgba(0,0,0,.10);
+
+    --shadow-lg:0 20px 45px rgba(0,0,0,.15);
+
+    /* Border Radius */
+
+    --radius-sm:12px;
+
+    --radius-md:20px;
+
+    --radius-lg:30px;
+
+    --radius-pill:999px;
+
+    /* Container */
+
+    --container-width:1200px;
+
+    /* Transition */
+
+    --transition:.35s ease;
+
+}

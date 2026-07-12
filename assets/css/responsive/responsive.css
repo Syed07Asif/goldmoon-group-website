@@ -1,0 +1,186 @@
+/*=========================================================
+                    1200px
+=========================================================*/
+
+@media (max-width:1200px){
+
+    .container{
+
+        width:94%;
+
+    }
+
+    .hero{
+
+        padding:80px 0;
+
+    }
+
+    .grid-2{
+
+        gap:30px;
+
+    }
+
+}
+/*=========================================================
+                    1024px
+=========================================================*/
+
+@media (max-width:1024px){
+
+    .company-name{
+
+        font-size:34px;
+
+    }
+
+    .logo img{
+
+        width:75px;
+
+    }
+
+    .hero-title{
+
+        font-size:clamp(2.2rem,4vw,3.5rem);
+
+    }
+
+    .hero-description{
+
+        font-size:15px;
+
+    }
+
+    .nav-menu{
+
+        gap:8px;
+
+    }
+
+    .nav-menu a{
+
+        min-width:88px;
+
+        height:40px;
+
+        font-size:14px;
+
+        padding:0 16px;
+
+    }
+
+}
+/*=========================================================
+                    768px
+=========================================================*/
+
+@media (max-width:768px){
+
+    .navbar .container{
+
+        justify-content:space-between;
+
+        min-height:60px;
+
+    }
+
+    .menu-toggle{
+
+        display:flex;
+
+    }
+
+    .nav-menu{
+
+        position:absolute;
+
+        top:100%;
+
+        left:0;
+
+        width:100%;
+
+        background:var(--white);
+
+        display:none;
+
+        flex-direction:column;
+
+        align-items:center;
+
+        padding:20px 0;
+
+        gap:10px;
+
+        box-shadow:var(--shadow-md);
+
+    }
+
+    .nav-menu.active{
+
+        display:flex;
+
+    }
+
+    .nav-menu li{
+
+        width:100%;
+
+        justify-content:center;
+
+    }
+
+}
+/*=========================================================
+                    600px
+=========================================================*/
+
+@media (max-width:600px){
+
+    .grid-2{
+
+        grid-template-columns:1fr;
+
+        gap:40px;
+
+    }
+
+    .hero{
+
+        padding:50px 0;
+
+    }
+
+    .hero-text{
+
+        text-align:center;
+
+        align-items:center;
+
+    }
+
+    .hero-description{
+
+        max-width:100%;
+
+    }
+
+    .hero-buttons{
+
+        justify-content:center;
+
+    }
+
+    .hero-slider{
+
+        width:100%;
+
+        max-width:500px;
+
+        margin:0 auto;
+
+    }
+
+}
