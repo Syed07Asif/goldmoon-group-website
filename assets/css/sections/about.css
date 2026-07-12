@@ -1,0 +1,153 @@
+/*=========================================================
+                        ABOUT
+=========================================================*/
+
+.about{
+
+    padding:70px 0;
+
+    background:var(--white);
+
+}
+
+/*=========================================================
+                    ABOUT CONTENT
+=========================================================*/
+
+.about-content{
+
+    align-items:stretch;
+
+    gap:35px;
+
+}
+
+/*=========================================================
+                    ABOUT IMAGE
+=========================================================*/
+
+.about-image{
+
+    position:relative;
+
+    width:100%;
+
+    height:620px;
+
+    overflow:hidden;
+
+    border-radius:var(--radius-lg);
+
+    box-shadow:var(--shadow-lg);
+
+}
+
+.about-photo{
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    opacity:0;
+
+    transition:opacity .8s ease;
+
+}
+
+.about-photo.active{
+
+    opacity:1;
+
+}
+
+/*=========================================================
+                    ABOUT INFO
+=========================================================*/
+
+.about-info{
+
+    display:flex;
+
+    flex-direction:column;
+
+    height:620px;
+
+    gap:16px;
+
+}
+
+/*=========================================================
+                    ABOUT ITEM
+=========================================================*/
+
+.about-item{
+
+    flex:1;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    padding:16px 24px;
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-md);
+
+    background:var(--white);
+
+    box-shadow:var(--shadow-sm);
+
+    transition:var(--transition);
+
+}
+
+.about-item:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:var(--shadow-md);
+
+}
+
+/*=========================================================
+                    ABOUT NUMBER
+=========================================================*/
+
+.about-number{
+
+    color:var(--primary);
+
+    font-size:2rem;
+
+    font-weight:700;
+
+    line-height:1.1;
+
+    margin-bottom:8px;
+
+}
+
+/*=========================================================
+                    ABOUT TEXT
+=========================================================*/
+
+.about-text{
+
+    color:var(--text);
+
+    font-size:15px;
+
+    font-weight:500;
+
+    line-height:1.5;
+
+}

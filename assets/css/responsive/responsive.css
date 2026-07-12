@@ -184,3 +184,92 @@
     }
 
 }
+
+/*=========================================================
+                    ABOUT - 768px
+=========================================================*/
+
+@media (max-width:768px){
+
+    .about-content{
+
+        grid-template-columns:1fr;
+
+        gap:35px;
+
+    }
+
+    .about-image{
+
+        height:500px;
+
+    }
+
+    .about-info{
+
+        height:auto;
+
+    }
+
+}
+/*=========================================================
+                    ABOUT - 600px
+=========================================================*/
+
+@media (max-width:600px){
+
+    .about{
+
+        padding:60px 0;
+
+    }
+
+    .about-image{
+
+        height:350px;
+
+    }
+
+    .about-number{
+
+        font-size:1.7rem;
+
+    }
+
+    .about-item{
+
+        padding:16px 18px;
+
+    }
+
+}/*=========================================================
+                    ABOUT - 600px
+=========================================================*/
+
+@media (max-width:600px){
+
+    .about{
+
+        padding:60px 0;
+
+    }
+
+    .about-image{
+
+        height:350px;
+
+    }
+
+    .about-number{
+
+        font-size:1.7rem;
+
+    }
+
+    .about-item{
+
+        padding:16px 18px;
+
+    }
+
+}
