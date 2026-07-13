@@ -1,0 +1,933 @@
+/*=========================================================
+                    SERVICES SECTION
+=========================================================*/
+
+.services{
+
+    padding:100px 0;
+
+    background:#f8f8f8;
+
+    overflow:hidden;
+
+}
+
+.services .container{
+
+    max-width:1400px;
+
+}
+
+/*=========================================================
+                    SECTION HEADER
+=========================================================*/
+
+.services .section-header{
+
+    text-align:center;
+
+    margin-bottom:70px;
+
+}
+
+.services .section-subtitle{
+
+    display:inline-block;
+
+    font-size:0.95rem;
+
+    font-weight:600;
+
+    color:var(--primary);
+
+    text-transform:uppercase;
+
+    letter-spacing:2px;
+
+    margin-bottom:15px;
+
+}
+
+.services .section-title{
+
+    font-size:2.8rem;
+
+    font-weight:700;
+
+    color:var(--dark);
+
+}
+
+/*=========================================================
+                    DECK
+=========================================================*/
+
+.services-deck{
+
+    position:relative;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    min-height:650px;
+
+}
+
+/*=========================================================
+                    CARD STAGE
+=========================================================*/
+
+.card-stage{
+
+    position:relative;
+
+    width:450px;
+
+    height:600px;
+
+    z-index:20;
+
+}
+
+/*=========================================================
+                    CURRENT CARD
+=========================================================*/
+
+.current-card{
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:20;
+
+}
+
+/*=========================================================
+                    INCOMING CARD
+=========================================================*/
+
+.incoming-card{
+
+    position:absolute;
+
+    inset:0;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    z-index:15;
+
+}
+
+/*=========================================================
+                    COMMON CARD
+=========================================================*/
+
+.service-card{
+
+    width:100%;
+
+    height:100%;
+
+    perspective:1800px;
+
+}
+
+/*=========================================================
+                    CARD INNER
+=========================================================*/
+
+.service-card-inner{
+
+    position:relative;
+
+    width:100%;
+
+    height:100%;
+
+    transition:transform .8s cubic-bezier(.22,.61,.36,1);
+
+    transform-style:preserve-3d;
+
+}
+
+/*=========================================================
+                    FLIP
+=========================================================*/
+
+.service-card.flipped .service-card-inner{
+
+    transform:rotateY(180deg);
+
+}
+
+/*=========================================================
+                    CARD FACES
+=========================================================*/
+
+.service-front,
+
+.service-back{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    background:#fff;
+
+    border-radius:24px;
+
+    overflow:hidden;
+
+    backface-visibility:hidden;
+
+    box-shadow:
+
+        0 30px 70px rgba(0,0,0,.16);
+
+}
+
+.service-back{
+
+    transform:rotateY(180deg);
+
+}
+
+/*=========================================================
+                    IMAGE
+=========================================================*/
+
+.service-image{
+
+    width:100%;
+
+    height:340px;
+
+    overflow:hidden;
+
+}
+
+.service-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+}
+
+/*=========================================================
+                    CONTENT
+=========================================================*/
+
+.service-content{
+
+    flex:1;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    padding:28px;
+
+}
+
+.service-title{
+
+    text-align:center;
+
+    font-size:2rem;
+
+    font-weight:700;
+
+    color:#222;
+
+}
+
+.service-actions{
+
+    display:flex;
+
+    justify-content:center;
+
+}
+/*=========================================================
+                    BACK SIDE
+=========================================================*/
+
+.service-back-content{
+
+    height:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    padding:30px;
+
+}
+
+.service-back-title{
+
+    text-align:center;
+
+    font-size:2rem;
+
+    font-weight:700;
+
+    margin-bottom:30px;
+
+    color:var(--dark);
+
+}
+
+.service-list{
+
+    flex:1;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+
+    overflow-y:auto;
+
+}
+
+.service-list li{
+
+    list-style:none;
+
+    background:#f4f4f4;
+
+    padding:15px 18px;
+
+    border-radius:12px;
+
+    font-size:.95rem;
+
+    transition:.3s;
+
+}
+
+.service-list li:hover{
+
+    background:#ececec;
+
+    transform:translateX(8px);
+
+}
+
+.service-back-actions{
+
+    display:flex;
+
+    justify-content:center;
+
+    margin-top:25px;
+
+}
+
+/*=========================================================
+                    BUTTONS
+=========================================================*/
+
+.service-actions .btn,
+
+.service-back-actions .btn{
+
+    min-width:180px;
+
+    transition:.35s;
+
+}
+
+.service-actions .btn:hover,
+
+.service-back-actions .btn:hover{
+
+    transform:translateY(-4px);
+
+}
+
+/*=========================================================
+                    LEFT STACK
+=========================================================*/
+
+.deck-stack{
+
+    position:absolute;
+
+    width:300px;
+
+    height:540px;
+
+    pointer-events:none;
+
+}
+
+.left-stack{
+
+    left:5%;
+
+}
+
+.right-stack{
+
+    right:5%;
+
+}
+
+/*=========================================================
+                    STACK CARD
+=========================================================*/
+
+.stack-card{
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:24px;
+
+    background:
+
+        linear-gradient(
+
+            145deg,
+
+            #3b3b3b,
+
+            #1d1d1d
+
+        );
+
+    border:1px solid rgba(255,255,255,.05);
+
+    box-shadow:
+
+        0 18px 40px rgba(0,0,0,.22);
+
+    transition:.45s;
+
+}
+
+/*=========================================================
+                    LEFT STACK
+=========================================================*/
+
+.left-stack .stack-card:nth-child(1){
+
+    transform:
+
+        rotate(-6deg)
+
+        translateX(0);
+
+}
+
+.left-stack .stack-card:nth-child(2){
+
+    transform:
+
+        rotate(-3deg)
+
+        translateX(16px);
+
+}
+
+.left-stack .stack-card:nth-child(3){
+
+    transform:
+
+        rotate(0deg)
+
+        translateX(32px);
+
+}
+
+/*=========================================================
+                    RIGHT STACK
+=========================================================*/
+
+.right-stack .stack-card:nth-child(1){
+
+    transform:
+
+        rotate(0deg)
+
+        translateX(0);
+
+}
+
+.right-stack .stack-card:nth-child(2){
+
+    transform:
+
+        rotate(3deg)
+
+        translateX(-16px);
+
+}
+
+.right-stack .stack-card:nth-child(3){
+
+    transform:
+
+        rotate(6deg)
+
+        translateX(-32px);
+
+}
+
+/*=========================================================
+                    ARROWS
+=========================================================*/
+
+.deck-arrow{
+
+    position:absolute;
+
+    width:60px;
+
+    height:60px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    color:#222;
+
+    cursor:pointer;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:22px;
+
+    z-index:30;
+
+    box-shadow:
+
+        0 12px 28px rgba(0,0,0,.15);
+
+    transition:.35s;
+
+}
+
+.left-arrow{
+
+    left:calc(50% - 315px);
+
+}
+
+.right-arrow{
+
+    right:calc(50% - 315px);
+
+}
+
+.deck-arrow:hover{
+
+    background:var(--primary);
+
+    color:#fff;
+
+    transform:scale(1.08);
+
+}
+
+.deck-arrow.hidden{
+
+    opacity:0;
+
+    visibility:hidden;
+
+    pointer-events:none;
+
+    transform:scale(.8);
+
+}
+/*=========================================================
+                    PAGINATION
+=========================================================*/
+
+.deck-pagination{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:14px;
+
+    margin-top:45px;
+
+}
+
+.deck-dot{
+
+    width:14px;
+
+    height:14px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#d2d2d2;
+
+    cursor:pointer;
+
+    transition:all .35s ease;
+
+}
+
+.deck-dot:hover{
+
+    transform:scale(1.15);
+
+}
+
+.deck-dot.active{
+
+    width:42px;
+
+    border-radius:30px;
+
+    background:var(--primary);
+
+    box-shadow:
+
+        0 0 20px rgba(201,169,97,.35);
+
+}
+
+/*=========================================================
+                CARD ANIMATIONS
+=========================================================*/
+
+.current-card{
+
+    transition:
+
+        transform .55s cubic-bezier(.22,.61,.36,1);
+
+}
+
+.incoming-card{
+
+    opacity:0;
+
+    transition:
+
+        transform .55s cubic-bezier(.22,.61,.36,1),
+
+        opacity .55s cubic-bezier(.22,.61,.36,1);
+
+}
+
+/*=========================================================
+                NEXT
+=========================================================*/
+
+.current-card.move-left{
+
+    transform:
+
+        translateX(-180px)
+
+        rotate(-12deg)
+
+        scale(.92);
+
+}
+
+.incoming-card.from-right{
+
+    transform:
+
+        translateX(180px)
+
+        rotate(12deg)
+
+        scale(.92);
+
+}
+
+.incoming-card.show{
+
+    opacity:1;
+
+}
+
+.incoming-card.to-center{
+
+    transform:
+
+        translateX(0)
+
+        rotate(0)
+
+        scale(1);
+
+}
+
+/*=========================================================
+                PREVIOUS
+=========================================================*/
+
+.current-card.move-right{
+
+    transform:
+
+        translateX(180px)
+
+        rotate(12deg)
+
+        scale(.92);
+
+}
+
+.incoming-card.from-left{
+
+    transform:
+
+        translateX(-180px)
+
+        rotate(-12deg)
+
+        scale(.92);
+
+}
+
+/*=========================================================
+                HOVER
+=========================================================*/
+
+.current-card:hover{
+
+    transform:translateY(-6px);
+
+}
+
+.current-card .service-front,
+
+.current-card .service-back{
+
+    transition:
+
+        box-shadow .35s ease;
+
+}
+
+.current-card:hover .service-front,
+
+.current-card:hover .service-back{
+
+    box-shadow:
+
+        0 40px 80px rgba(0,0,0,.20);
+
+}
+
+/*=========================================================
+                FLOAT
+=========================================================*/
+
+@keyframes floatCard{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-5px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.current-card{
+
+    animation:
+
+        floatCard 5s ease-in-out infinite;
+
+}
+
+.current-card.animating{
+
+    animation:none;
+
+}
+
+/*=========================================================
+                ACCESSIBILITY
+=========================================================*/
+
+.deck-arrow:focus-visible,
+
+.deck-dot:focus-visible,
+
+.service-actions .btn:focus-visible,
+
+.service-back-actions .btn:focus-visible{
+
+    outline:3px solid var(--primary);
+
+    outline-offset:4px;
+
+}
+
+/*=========================================================
+                RESPONSIVE FOUNDATION
+=========================================================*/
+
+@media (max-width:1200px){
+
+    .left-stack{
+
+        left:2%;
+
+    }
+
+    .right-stack{
+
+        right:2%;
+
+    }
+
+}
+
+@media (max-width:992px){
+
+    .deck-stack{
+
+        display:none;
+
+    }
+
+    .card-stage{
+
+        width:420px;
+
+        height:570px;
+
+    }
+
+    .left-arrow{
+
+        left:40px;
+
+    }
+
+    .right-arrow{
+
+        right:40px;
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    .services{
+
+        padding:80px 0;
+
+    }
+
+    .card-stage{
+
+        width:360px;
+
+        height:520px;
+
+    }
+
+    .service-image{
+
+        height:280px;
+
+    }
+
+    .left-arrow,
+
+    .right-arrow{
+
+        display:none;
+
+    }
+
+}
+
+@media (max-width:480px){
+
+    .card-stage{
+
+        width:100%;
+
+        max-width:320px;
+
+        height:470px;
+
+    }
+
+    .service-image{
+
+        height:230px;
+
+    }
+
+    .service-title{
+
+        font-size:1.6rem;
+
+    }
+
+    .service-back-title{
+
+        font-size:1.6rem;
+
+    }
+
+    .service-list li{
+
+        font-size:.85rem;
+
+        padding:12px;
+
+    }
+
+}
