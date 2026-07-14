@@ -12,4 +12,6 @@ document.addEventListener("DOMContentLoaded",()=>{
 
     Contact.init();
 
+    BackToTop.init();
+    Loader.init();
 });

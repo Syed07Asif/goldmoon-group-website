@@ -16,5 +16,6 @@
 @import url("sections/projects.css");
 @import url("sections/gallery.css");
 @import url("sections/contact.css");
-
+@import url("components/back-to-top.css");
+@import url("components/loader.css");
 @import url("responsive/responsive.css");
