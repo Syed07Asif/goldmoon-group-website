@@ -7,7 +7,7 @@ const PROJECTS = [
     {
         id: 1,
 
-        title: "Luxury Apartment",
+        title: "Small Residental Home with Modern Architecture",
 
         status: "Completed",
 
@@ -15,7 +15,7 @@ const PROJECTS = [
 
         duration: "18 Months",
 
-        location: "Ramanathapuram, Tamil Nadu",
+        location: "Panaikulam,Ramanathapuram, Tamil Nadu",
 
         image: "assets/images/projects/project1.jpg"
     },
@@ -23,15 +23,15 @@ const PROJECTS = [
     {
         id: 2,
 
-        title: "Commercial Complex",
+        title: "Big Modern residential Home",
 
-        status: "Ongoing",
+        status:"Completed",
 
         started: "2024",
 
-        duration: "24 Months",
+        duration: "18 Months",
 
-        location: "Madurai, Tamil Nadu",
+        location: "Puduvalasai,Ramanathapuram, Tamil Nadu",
 
         image: "assets/images/projects/project2.jpg"
     },
@@ -39,17 +39,18 @@ const PROJECTS = [
     {
         id: 3,
 
-        title: "Industrial Warehouse",
+        title: "Mosque New building",
 
         status: "Completed",
 
-        started: "2022",
+        started: "2023",
 
-        duration: "12 Months",
+        duration: "20 Months",
 
-        location: "Chennai, Tamil Nadu",
+        location: "Ramanathapuram , Tamil Nadu",
 
         image: "assets/images/projects/project3.jpg"
     }
 
+    
 ];

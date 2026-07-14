@@ -1,0 +1,241 @@
+/*=========================================================
+                        FOOTER
+=========================================================*/
+
+.footer{
+
+    background:#111111;
+
+    color:#dddddd;
+
+    padding:70px 0 25px;
+
+}
+
+/*=========================================================
+                    FOOTER GRID
+=========================================================*/
+
+.footer-grid{
+
+    display:grid;
+
+    grid-template-columns:
+
+        1.4fr 1fr 1fr 1fr;
+
+    gap:50px;
+
+    margin-bottom:50px;
+
+}
+
+/*=========================================================
+                    FOOTER COLUMN
+=========================================================*/
+
+.footer-column{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+/*=========================================================
+                    LOGO
+=========================================================*/
+
+.footer-logo{
+
+    width:85px;
+
+    margin-bottom:18px;
+
+    transition:.3s ease;
+
+}
+
+.footer-logo:hover{
+
+    transform:scale(1.05);
+
+}
+
+/*=========================================================
+                    HEADINGS
+=========================================================*/
+
+.footer-column h3{
+
+    color:#ffffff;
+
+    font-size:1.5rem;
+
+    margin-bottom:12px;
+
+    font-weight:700;
+
+}
+
+.footer-column h4{
+
+    color:#ffffff;
+
+    font-size:1.05rem;
+
+    margin-bottom:18px;
+
+    font-weight:600;
+
+}
+
+/*=========================================================
+                    TEXT
+=========================================================*/
+
+.footer-column p,
+
+.footer-column span{
+
+    color:#bfbfbf;
+
+    line-height:1.8;
+
+    font-size:.92rem;
+
+}
+
+/*=========================================================
+                    LINKS
+=========================================================*/
+
+.footer-column a{
+
+    color:#bfbfbf;
+
+    text-decoration:none;
+
+    margin-bottom:12px;
+
+    transition:.3s ease;
+
+    width:fit-content;
+
+}
+
+.footer-column a:hover{
+
+    color:var(--secondary);
+
+    transform:translateX(5px);
+
+}
+
+/*=========================================================
+                FOOTER BOTTOM
+=========================================================*/
+
+.footer-bottom{
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    padding-top:22px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
+
+.footer-bottom p{
+
+    color:#bfbfbf;
+
+    font-size:.9rem;
+
+}
+
+/*=========================================================
+                DEVELOPER LINK
+=========================================================*/
+
+.developer-link{
+
+    color:var(--secondary);
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:.3s ease;
+
+}
+
+.developer-link:hover{
+
+    color:#ffffff;
+
+}
+
+/*=========================================================
+                RESPONSIVE
+=========================================================*/
+
+@media(max-width:992px){
+
+    .footer-grid{
+
+        grid-template-columns:
+
+            repeat(2,1fr);
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .footer{
+
+        padding:55px 0 20px;
+
+    }
+
+    .footer-grid{
+
+        grid-template-columns:1fr;
+
+        gap:35px;
+
+        text-align:center;
+
+    }
+
+    .footer-column{
+
+        align-items:center;
+
+    }
+
+    .footer-column a{
+
+        width:auto;
+
+    }
+
+    .footer-bottom{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+}
