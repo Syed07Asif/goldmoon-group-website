@@ -10,13 +10,13 @@ const SERVICES = [
         image: "assets/images/services/construction.jpg",
         services: [
             "Residential Construction",
+            "Road Construction",
             "Commercial Construction",
             "Industrial Construction",
-            "Villa Construction",
-            "Apartment Construction",
+            "Farm House Area",
+            "Parking Area",
             "Interior Works",
-            "Renovation",
-            "Project Management"
+            "Renovation"
         ]
     },
 
@@ -25,14 +25,12 @@ const SERVICES = [
         title: "Manufacturing",
         image: "assets/images/services/manufacturing.jpg",
         services: [
-            "Steel Fabrication",
-            "Metal Fabrication",
-            "Industrial Products",
-            "Machine Components",
-            "Custom Manufacturing",
-            "Industrial Equipment",
-            "Assembly",
-            "Production Support"
+            "Paver Blocks",
+            "Solid Blocks",
+            "Hollow Blocks",
+            "Well Rings",
+            "Cement Pillars",
+            "Concrete Products",
         ]
     },
 
@@ -41,13 +39,13 @@ const SERVICES = [
         title: "Earth Movers",
         image: "assets/images/services/earthmovers.jpg",
         services: [
+            "6 Unit Tipper Truck",
+            "Tractors x 3 ",
+            "Mini Truck(Tata Ace)",
+            "JCP x 2",
             "Excavation",
-            "Land Development",
-            "Road Works",
             "Site Preparation",
-            "Heavy Equipment Rental",
             "Bulldozer Services",
-            "Backhoe Services",
             "Loader Services"
         ]
     },
@@ -57,13 +55,11 @@ const SERVICES = [
         title: "Trading",
         image: "assets/images/services/trading.jpg",
         services: [
-            "Import",
-            "Export",
+            
             "Industrial Supply",
             "Wholesale",
             "Building Materials",
             "Steel Supply",
-            "Machinery Supply",
             "Logistics Support"
         ]
     },
@@ -73,13 +69,10 @@ const SERVICES = [
         title: "Holidays",
         image: "assets/images/services/holidays.jpg",
         services: [
-            "International Tours",
+            "Car and Mini Bus rentals",
             "Domestic Tours",
-            "Visa Assistance",
-            "Flight Booking",
-            "Hotel Booking",
-            "Travel Insurance",
             "Transportation",
+            "5 and 7 Seater Vehicles",
             "Customized Packages"
         ]
     }

@@ -1,0 +1,675 @@
+/*=========================================================
+                    PROJECTS SECTION
+=========================================================*/
+
+.projects{
+
+    padding:100px 0;
+
+    background:#ffffff;
+
+}
+
+.projects .container{
+
+    max-width:1400px;
+
+}
+
+/*=========================================================
+                    SECTION HEADER
+=========================================================*/
+
+.projects .section-header{
+
+    text-align:center;
+
+    margin-bottom:70px;
+
+}
+
+/*=========================================================
+                    PROJECT GRID
+=========================================================*/
+
+.projects-grid{
+
+    display:grid;
+
+    grid-template-columns:
+
+        repeat(3,1fr);
+
+    gap:35px;
+
+}
+
+/*=========================================================
+                    PROJECT CARD
+=========================================================*/
+
+.project-card{
+
+    background:#ffffff;
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    box-shadow:
+
+        0 20px 45px rgba(0,0,0,.08);
+
+    transition:
+
+        transform .35s ease,
+
+        box-shadow .35s ease;
+
+}
+
+.project-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:
+
+        0 30px 60px rgba(0,0,0,.14);
+
+}
+/*=========================================================
+                    IMAGE
+=========================================================*/
+
+.project-image{
+
+    position:relative;
+
+    height:280px;
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+}
+
+.project-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:
+
+        transform .5s ease;
+
+}
+
+.project-card:hover .project-image img{
+
+    transform:scale(1.08);
+
+}
+
+/*=========================================================
+                    IMAGE OVERLAY
+=========================================================*/
+
+.project-image::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+        rgba(0,0,0,.12);
+
+    opacity:0;
+
+    transition:.35s;
+
+}
+
+.project-card:hover .project-image::after{
+
+    opacity:1;
+
+}
+/*=========================================================
+                    STATUS BADGE
+=========================================================*/
+
+.project-status{
+
+    position:absolute;
+
+    top:18px;
+
+    left:18px;
+
+    padding:
+
+        8px 18px;
+
+    border-radius:50px;
+
+    color:#fff;
+
+    font-size:.8rem;
+
+    font-weight:700;
+
+    text-transform:uppercase;
+
+    z-index:5;
+
+}
+
+.project-status.completed{
+
+    background:#27ae60;
+
+}
+
+.project-status.ongoing{
+
+    background:#d4a017;
+
+}
+
+.project-status.upcoming{
+
+    background:#3498db;
+
+}
+/*=========================================================
+                    PROJECT CONTENT
+=========================================================*/
+
+.project-content{
+
+    padding:28px;
+
+}
+
+.project-title{
+
+    font-size:1.6rem;
+
+    font-weight:700;
+
+    color:var(--dark);
+
+    margin-bottom:22px;
+
+    line-height:1.3;
+
+}
+
+/*=========================================================
+                    PROJECT DETAILS
+=========================================================*/
+
+.project-details{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+/*=========================================================
+                    DETAIL ROW
+=========================================================*/
+
+.project-detail{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    padding-bottom:14px;
+
+    border-bottom:1px solid #eeeeee;
+
+}
+
+.project-detail:last-child{
+
+    border-bottom:none;
+
+    padding-bottom:0;
+
+}
+
+/*=========================================================
+                    ICON
+=========================================================*/
+
+.project-icon{
+
+    width:42px;
+
+    height:42px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-radius:50%;
+
+    background:rgba(201,169,97,.12);
+
+    color:var(--primary);
+
+    flex-shrink:0;
+
+    font-size:18px;
+
+}
+
+/*=========================================================
+                    TEXT
+=========================================================*/
+
+.project-text{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:3px;
+
+}
+
+.project-label{
+
+    font-size:.78rem;
+
+    color:#888;
+
+    font-weight:600;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+
+}
+
+.project-value{
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    color:#222;
+
+}
+/*=========================================================
+                    CARD ANIMATION
+=========================================================*/
+
+.project-card{
+
+    opacity:0;
+
+    transform:translateY(40px);
+
+    animation:projectFade .8s ease forwards;
+
+}
+
+.project-card:nth-child(2){
+
+    animation-delay:.15s;
+
+}
+
+.project-card:nth-child(3){
+
+    animation-delay:.3s;
+
+}
+
+@keyframes projectFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+/*=========================================================
+                    IMAGE HOVER
+=========================================================*/
+
+.project-image{
+
+    transition:all .4s ease;
+
+}
+
+.project-image:hover{
+
+    cursor:pointer;
+
+}
+
+.project-image:hover img{
+
+    transform:scale(1.12);
+
+}
+/*=========================================================
+                    PROJECT LIGHTBOX
+=========================================================*/
+
+.project-lightbox{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.92);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.35s ease;
+
+    z-index:9999;
+
+}
+
+.project-lightbox.active{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+/*=========================================================
+                    LIGHTBOX IMAGE
+=========================================================*/
+
+.project-lightbox img{
+
+    max-width:90%;
+
+    max-height:85vh;
+
+    border-radius:18px;
+
+    object-fit:contain;
+
+    box-shadow:
+
+        0 25px 70px rgba(0,0,0,.45);
+
+    transform:scale(.85);
+
+    transition:transform .35s ease;
+
+}
+
+.project-lightbox.active img{
+
+    transform:scale(1);
+
+}
+
+/*=========================================================
+                    CLOSE BUTTON
+=========================================================*/
+
+.lightbox-close{
+
+    position:absolute;
+
+    top:30px;
+
+    right:35px;
+
+    width:52px;
+
+    height:52px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#ffffff;
+
+    color:#111111;
+
+    font-size:34px;
+
+    cursor:pointer;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    transition:.3s;
+
+}
+
+.lightbox-close:hover{
+
+    background:var(--primary);
+
+    color:#ffffff;
+
+    transform:rotate(90deg);
+
+}
+
+/*=========================================================
+                    RESPONSIVE
+=========================================================*/
+
+@media (max-width:1200px){
+
+    .projects .container{
+
+        max-width:1100px;
+
+        padding:0 25px;
+
+    }
+
+    .projects-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+        gap:30px;
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    .projects{
+
+        padding:80px 0;
+
+    }
+
+    .projects .container{
+
+        padding:0 20px;
+
+    }
+
+    .projects-grid{
+
+        grid-template-columns:1fr;
+
+        gap:28px;
+
+    }
+
+    .project-card{
+
+        max-width:550px;
+
+        margin:0 auto;
+
+    }
+
+    .project-image{
+
+        height:260px;
+
+    }
+
+    .project-content{
+
+        padding:24px;
+
+    }
+
+    .project-title{
+
+        font-size:1.5rem;
+
+    }
+
+    .project-detail{
+
+        gap:12px;
+
+    }
+
+    .project-icon{
+
+        width:40px;
+
+        height:40px;
+
+        font-size:16px;
+
+    }
+
+    .lightbox-close{
+
+        top:20px;
+
+        right:20px;
+
+        width:48px;
+
+        height:48px;
+
+        font-size:28px;
+
+    }
+
+}
+
+@media (max-width:480px){
+
+    .projects{
+
+        padding:70px 0;
+
+    }
+
+    .projects .container{
+
+        padding:0 16px;
+
+    }
+
+    .project-card{
+
+        border-radius:18px;
+
+    }
+
+    .project-image{
+
+        height:220px;
+
+    }
+
+    .project-content{
+
+        padding:20px;
+
+    }
+
+    .project-title{
+
+        font-size:1.3rem;
+
+    }
+
+    .project-status{
+
+        top:14px;
+
+        left:14px;
+
+        padding:6px 14px;
+
+        font-size:.72rem;
+
+    }
+
+    .project-icon{
+
+        width:36px;
+
+        height:36px;
+
+        font-size:15px;
+
+    }
+
+    .project-label{
+
+        font-size:.72rem;
+
+    }
+
+    .project-value{
+
+        font-size:.9rem;
+
+    }
+
+}

@@ -2,13 +2,23 @@ const Navigation = {
 
     init(){
 
-        this.menu=document.querySelector(".nav-menu");
+        this.menu = document.querySelector(".nav-menu");
 
-        this.toggle=document.querySelector(".menu-toggle");
+        this.toggle = document.querySelector(".menu-toggle");
 
-        this.links=document.querySelectorAll(".nav-menu a");
+        this.links = document.querySelectorAll(".nav-menu a");
+
+        this.sections = document.querySelectorAll("main section");
 
         this.bindEvents();
+
+        this.updateActiveLink();
+
+        window.addEventListener("scroll", () => {
+
+            this.updateActiveLink();
+
+        });
 
     },
 
@@ -31,6 +41,36 @@ const Navigation = {
                 this.toggle.classList.remove("active");
 
             });
+
+        });
+
+    },
+
+    updateActiveLink(){
+
+        let currentSection = "";
+
+        this.sections.forEach(section=>{
+
+            const sectionTop = section.offsetTop - 150;
+
+            if(window.scrollY >= sectionTop){
+
+                currentSection = section.getAttribute("id");
+
+            }
+
+        });
+
+        this.links.forEach(link=>{
+
+            link.classList.remove("active");
+
+            if(link.getAttribute("href") === "#" + currentSection){
+
+                link.classList.add("active");
+
+            }
 
         });
 

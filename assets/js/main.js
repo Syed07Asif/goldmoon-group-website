@@ -6,4 +6,6 @@ document.addEventListener("DOMContentLoaded",()=>{
 
     Services.init();
 
+    Projects.init();
+
 });
