@@ -8,4 +8,6 @@ document.addEventListener("DOMContentLoaded",()=>{
 
     Projects.init();
 
+    Gallery.init();
+
 });
