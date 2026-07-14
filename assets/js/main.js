@@ -10,4 +10,6 @@ document.addEventListener("DOMContentLoaded",()=>{
 
     Gallery.init();
 
+    Contact.init();
+
 });
