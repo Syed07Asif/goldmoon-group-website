@@ -4,13 +4,33 @@
 
 const Projects={
 
+    /*=====================================================
+                        ELEMENTS
+    =====================================================*/
+
+    track:null,
+
+    prevButton:null,
+
+    nextButton:null,
+
+    pagination:null,
+
     lightbox:null,
 
     lightboxImage:null,
 
     closeButton:null,
 
-    grid:null,
+    /*=====================================================
+                        STATE
+    =====================================================*/
+
+    currentPage:0,
+
+    cardsPerPage:3,
+
+    totalPages:0,
 
     /*=====================================================
                         INIT
@@ -18,7 +38,13 @@ const Projects={
 
     init(){
 
-        this.grid=document.getElementById("projectsGrid");
+        this.track=document.getElementById("projectsTrack");
+
+        this.prevButton=document.getElementById("projectsPrev");
+
+        this.nextButton=document.getElementById("projectsNext");
+
+        this.pagination=document.getElementById("projectsPagination");
 
         this.lightbox=document.getElementById("projectLightbox");
 
@@ -26,47 +52,149 @@ const Projects={
 
         this.closeButton=document.getElementById("closeProjectLightbox");
 
-        this.renderProjects();
+        if(
 
-        this.preloadImages();
+            !this.track ||
 
-        this.animateCards();
+            !this.prevButton ||
+
+            !this.nextButton ||
+
+            !this.pagination ||
+
+            !this.lightbox ||
+
+            !this.lightboxImage ||
+
+            !this.closeButton
+
+        ){
+
+            return;
+
+        }
+
+        this.updateCardsPerPage();
+
+        this.calculatePages();
+
+        this.renderPages();
+
+        this.updateNavigation();
+
+        this.createPagination();
 
         this.bindEvents();
 
     },
 
     /*=====================================================
-                        EVENTS
+                    RESPONSIVE
     =====================================================*/
 
-    bindEvents(){
+    updateCardsPerPage(){
 
-        this.closeButton.addEventListener("click",()=>{
+        if(window.innerWidth<=768){
 
-            this.closeLightbox();
+            this.cardsPerPage=1;
 
-        });
+        }
 
-        this.lightbox.addEventListener("click",(e)=>{
+        else if(window.innerWidth<=1200){
 
-            if(e.target===this.lightbox){
+            this.cardsPerPage=2;
 
-                this.closeLightbox();
+        }
 
-            }
+        else{
 
-        });
+            this.cardsPerPage=3;
 
-        document.addEventListener("keydown",(e)=>{
+        }
 
-            if(e.key==="Escape"){
+    },
 
-                this.closeLightbox();
+    /*=====================================================
+                    TOTAL PAGES
+    =====================================================*/
 
-            }
+    calculatePages(){
 
-        });
+        this.totalPages=Math.ceil(
+
+            PROJECTS.length/
+
+            this.cardsPerPage
+
+        );
+
+    },
+
+    /*=====================================================
+                    RENDER PAGES
+    =====================================================*/
+
+    renderPages(){
+
+        this.track.innerHTML="";
+
+        for(
+
+            let page=0;
+
+            page<this.totalPages;
+
+            page++
+
+        ){
+
+            const pageElement=
+
+                document.createElement("div");
+
+            pageElement.className="projects-page";
+
+            const start=
+
+                page*this.cardsPerPage;
+
+            const end=
+
+                start+this.cardsPerPage;
+
+            const pageProjects=
+
+                PROJECTS.slice(
+
+                    start,
+
+                    end
+
+                );
+
+            pageProjects.forEach(project=>{
+
+                pageElement.insertAdjacentHTML(
+
+                    "beforeend",
+
+                    this.createProjectCard(project)
+
+                );
+
+            });
+
+            this.track.appendChild(
+
+                pageElement
+
+            );
+
+        }
+
+        this.slideToCurrentPage();
+
+        this.attachImageEvents();
 
     },
 
@@ -76,18 +204,19 @@ const Projects={
 
     createProjectCard(project){
 
-        const statusClass=this.getStatusClass(project.status);
-
         return`
 
         <article class="project-card">
 
             <div
+
                 class="project-image"
+
                 data-image="${project.image}">
 
                 <span
-                    class="project-status ${statusClass}">
+
+                    class="project-status ${project.status.toLowerCase()}">
 
                     ${project.status}
 
@@ -201,48 +330,266 @@ const Projects={
 
     },
     /*=====================================================
-                    RENDER PROJECTS
+                    SLIDE TO PAGE
     =====================================================*/
 
-    renderProjects(){
+slideToCurrentPage(){
 
-        this.grid.innerHTML="";
+    const offset=
 
-        PROJECTS.forEach(project=>{
+        this.currentPage*100;
 
-            this.grid.insertAdjacentHTML(
+    this.track.style.transform=
 
-                "beforeend",
+        `translateX(-${offset}%)`;
 
-                this.createProjectCard(project)
+},
+    /*=====================================================
+                    NEXT PAGE
+    =====================================================*/
 
-            );
+    nextPage(){
 
-        });
+        if(
 
-        this.attachImageEvents();
+            this.currentPage>=
+
+            this.totalPages-1
+
+        ){
+
+            return;
+
+        }
+
+        this.currentPage++;
+
+        this.slideToCurrentPage();
+
+        this.updateNavigation();
+
+        this.updatePagination();
 
     },
 
     /*=====================================================
-                    IMAGE EVENTS
+                    PREVIOUS PAGE
+    =====================================================*/
+
+    previousPage(){
+
+        if(
+
+            this.currentPage<=0
+
+        ){
+
+            return;
+
+        }
+
+        this.currentPage--;
+
+        this.slideToCurrentPage();
+
+        this.updateNavigation();
+
+        this.updatePagination();
+
+    },
+
+    /*=====================================================
+                    UPDATE NAVIGATION
+    =====================================================*/
+
+    updateNavigation(){
+
+        if(
+
+            this.currentPage===0
+
+        ){
+
+            this.prevButton.classList.add(
+
+                "hidden"
+
+            );
+
+        }
+
+        else{
+
+            this.prevButton.classList.remove(
+
+                "hidden"
+
+            );
+
+        }
+
+        if(
+
+            this.currentPage===
+
+            this.totalPages-1
+
+        ){
+
+            this.nextButton.classList.add(
+
+                "hidden"
+
+            );
+
+        }
+
+        else{
+
+            this.nextButton.classList.remove(
+
+                "hidden"
+
+            );
+
+        }
+
+    },
+
+    /*=====================================================
+                    CREATE PAGINATION
+    =====================================================*/
+
+    createPagination(){
+
+        this.pagination.innerHTML="";
+
+        for(
+
+            let i=0;
+
+            i<this.totalPages;
+
+            i++
+
+        ){
+
+            const dot=
+
+                document.createElement(
+
+                    "button"
+
+                );
+
+            dot.className=
+
+                "projects-dot";
+
+            if(
+
+                i===this.currentPage
+
+            ){
+
+                dot.classList.add(
+
+                    "active"
+
+                );
+
+            }
+
+            dot.addEventListener(
+
+                "click",
+
+                ()=>{
+
+                    this.currentPage=i;
+
+                    this.slideToCurrentPage();
+
+                    this.updateNavigation();
+
+                    this.updatePagination();
+
+                }
+
+            );
+
+            this.pagination.appendChild(
+
+                dot
+
+            );
+
+        }
+
+    },
+
+    /*=====================================================
+                    UPDATE PAGINATION
+    =====================================================*/
+
+    updatePagination(){
+
+        const dots=
+
+            this.pagination.querySelectorAll(
+
+                ".projects-dot"
+
+            );
+
+        dots.forEach(
+
+            (dot,index)=>{
+
+                dot.classList.toggle(
+
+                    "active",
+
+                    index===this.currentPage
+
+                );
+
+            }
+
+        );
+
+    },
+    /*=====================================================
+                    ATTACH IMAGE EVENTS
     =====================================================*/
 
     attachImageEvents(){
 
         const images=
 
-            document.querySelectorAll(".project-image");
+            this.track.querySelectorAll(
+
+                ".project-image"
+
+            );
 
         images.forEach(image=>{
 
-            image.addEventListener("click",()=>{
+            image.addEventListener(
 
-                const src=image.dataset.image;
+                "click",
 
-                this.openLightbox(src);
+                ()=>{
 
-            });
+                    this.openLightbox(
+
+                        image.dataset.image
+
+                    );
+
+                }
+
+            );
 
         });
 
@@ -256,9 +603,15 @@ const Projects={
 
         this.lightboxImage.src=image;
 
-        this.lightbox.classList.add("active");
+        this.lightbox.classList.add(
 
-        document.body.style.overflow="hidden";
+            "active"
+
+        );
+
+        document.body.style.overflow=
+
+            "hidden";
 
     },
 
@@ -268,7 +621,11 @@ const Projects={
 
     closeLightbox(){
 
-        this.lightbox.classList.remove("active");
+        this.lightbox.classList.remove(
+
+            "active"
+
+        );
 
         document.body.style.overflow="";
 
@@ -279,92 +636,204 @@ const Projects={
         },300);
 
     },
+
     /*=====================================================
-                    STATUS CLASS
+                    BIND EVENTS
     =====================================================*/
 
-    getStatusClass(status){
+    bindEvents(){
 
-        switch(status.toLowerCase()){
+        this.prevButton.addEventListener(
 
-            case "completed":
+            "click",
 
-                return "completed";
+            ()=>{
 
-            case "ongoing":
+                this.previousPage();
 
-                return "ongoing";
+            }
 
-            case "upcoming":
+        );
 
-                return "upcoming";
+        this.nextButton.addEventListener(
 
-            default:
+            "click",
 
-                return "completed";
+            ()=>{
+
+                this.nextPage();
+
+            }
+
+        );
+
+        this.closeButton.addEventListener(
+
+            "click",
+
+            ()=>{
+
+                this.closeLightbox();
+
+            }
+
+        );
+
+        this.lightbox.addEventListener(
+
+            "click",
+
+            (event)=>{
+
+                if(
+
+                    event.target===
+
+                    this.lightbox
+
+                ){
+
+                    this.closeLightbox();
+
+                }
+
+            }
+
+        );
+
+        document.addEventListener(
+
+            "keydown",
+
+            (event)=>{
+
+                if(
+
+                    event.key==="Escape"
+
+                ){
+
+                    this.closeLightbox();
+
+                }
+
+            }
+
+        );
+
+        window.addEventListener(
+
+            "resize",
+
+            ()=>{
+
+                this.handleResize();
+
+            }
+
+        );
+
+    },
+
+    /*=====================================================
+                    HANDLE RESIZE
+    =====================================================*/
+
+    handleResize(){
+
+        const previous=
+
+            this.cardsPerPage;
+
+        this.updateCardsPerPage();
+
+        if(
+
+            previous!==
+
+            this.cardsPerPage
+
+        ){
+
+            this.calculatePages();
+
+            if(
+
+                this.currentPage>=
+
+                this.totalPages
+
+            ){
+
+                this.currentPage=
+
+                    this.totalPages-1;
+
+            }
+
+            this.renderPages();
+
+            this.createPagination();
+
+            this.updateNavigation();
 
         }
 
     },
-
     /*=====================================================
-                    IMAGE PRELOAD
-    =====================================================*/
-
-    preloadImages(){
-
-        PROJECTS.forEach(project=>{
-
-            const image=new Image();
-
-            image.src=project.image;
-
-        });
-
-    },
-
-    /*=====================================================
-                    ANIMATE CARDS
-    =====================================================*/
-
-    animateCards(){
-
-        const cards=document.querySelectorAll(".project-card");
-
-        cards.forEach((card,index)=>{
-
-            card.style.animationDelay=`${index*0.15}s`;
-
-        });
-
-    },
-
-    /*=====================================================
-                    REFRESH
+                        REFRESH
     =====================================================*/
 
     refresh(){
 
-        this.renderProjects();
+        this.updateCardsPerPage();
 
-        this.animateCards();
+        this.calculatePages();
+
+        if(
+
+            this.currentPage>
+
+            this.totalPages-1
+
+        ){
+
+            this.currentPage=
+
+                Math.max(
+
+                    0,
+
+                    this.totalPages-1
+
+                );
+
+        }
+
+        this.renderPages();
+
+        this.createPagination();
+
+        this.updateNavigation();
 
     },
 
     /*=====================================================
-                    DESTROY
+                        DESTROY
     =====================================================*/
 
     destroy(){
 
         document.body.style.overflow="";
 
-        if(this.lightbox){
+        this.track.innerHTML="";
 
-            this.lightbox.classList.remove("active");
+        this.pagination.innerHTML="";
 
-        }
+        this.currentPage=0;
 
     }
 
 };
+
+
