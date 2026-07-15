@@ -50,36 +50,5 @@ const PROJECTS = [
         location: "Ramanathapuram , Tamil Nadu",
 
         image: "assets/images/projects/project3.jpg"
-    },
-
-    {
-        id: 4,
-
-        title: "Mosque New building",
-
-        status: "Completed",
-
-        started: "2023",
-
-        duration: "20 Months",
-
-        location: "Ramanathapuram , Tamil Nadu",
-
-        image: "assets/images/projects/project3.jpg"
-    },
-    {
-        id: 5,
-
-        title: "Mosque New building",
-
-        status: "Completed",
-
-        started: "2023",
-
-        duration: "20 Months",
-
-        location: "Ramanathapuram , Tamil Nadu",
-
-        image: "assets/images/projects/project3.jpg"
     }
 ];

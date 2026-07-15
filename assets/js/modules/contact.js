@@ -48,22 +48,6 @@ const Contact = {
 
         });
 
-    },
-
-    /*=====================================================
-                    LINK CLICKED
-    =====================================================*/
-
-    linkClicked(link){
-
-        console.log(
-
-            "Contact Link Clicked:",
-
-            link.href
-
-        );
-
     }
 
 };
